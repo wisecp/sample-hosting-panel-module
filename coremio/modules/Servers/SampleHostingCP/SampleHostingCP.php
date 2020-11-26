@@ -128,6 +128,30 @@
                 ],
             ];
         }
+        
+        public function UsernameGenerator($domain='',$half_mixed=false){
+            $exp            = explode(".",$domain);
+            $domain         = Filter::transliterate($exp[0]);
+            $username       = $domain;
+            $fchar          = substr($username,0,1);
+            $size           = strlen($username);
+            if($fchar == "0" || (int)$fchar)
+                $username   = Utility::generate_hash(1,false,"l").substr($username,1,$size-1);
+
+            if($size>=8){
+                $username   = substr($username,0,5);
+                $username .= Utility::generate_hash(3,false,"l");
+            }elseif($size>4 && $size<9){
+                $username   = substr($username,0,5);
+                $username .= Utility::generate_hash(3,false,"l");
+            }elseif($size>=1 && $size<5){
+                $how        = (8 - $size);
+                $username   = substr($username,0,$size);
+                $username .= Utility::generate_hash($how,false,"l");
+            }
+
+            return $username;
+        }
 
         public function create($domain = '',array $order_options=[])
         {
