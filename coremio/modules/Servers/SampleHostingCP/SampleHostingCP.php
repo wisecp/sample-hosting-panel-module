@@ -129,7 +129,7 @@
             ];
         }
         
-        public function UsernameGenerator($domain='',$half_mixed=false){
+        public function generate_username($domain='',$half_mixed=false){
             $exp            = explode(".",$domain);
             $domain         = Filter::transliterate($exp[0]);
             $username       = $domain;
@@ -155,7 +155,7 @@
 
         public function create($domain = '',array $order_options=[])
         {
-            $username       = $this->UsernameGenerator($domain);
+            $username       = $this->generate_username($domain);
             $password       = Utility::generate_hash(12);
 
 
