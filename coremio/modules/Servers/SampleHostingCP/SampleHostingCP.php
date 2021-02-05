@@ -159,8 +159,8 @@
             $password       = Utility::generate_hash(12);
 
 
-            if(isset($order_options["username"])) $username = $order_options["username"];
-            if(isset($order_options["password"])) $password = $order_options["password"];
+            if(isset($order_options["username"]) && $order_options["username"]) $username = $order_options["username"];
+            if(isset($order_options["password"]) && $order_options["password"]) $password = $order_options["password"];
 
             $username       = str_replace("-","",$username);
             $creation_info  = isset($order_options["creation_info"]) ? $order_options["creation_info"] : [];
@@ -853,18 +853,17 @@
 
 
    // Hook Usage Sample
-//   Hook::add("ClientCreated",1,function($params=[]){
-//
-//        $name           = $params['name'];
-//        $surname        = $params['surname'];
-//        $email          = $params['email'];
-//        $phone          = $params['phone'];
-//        users_informations  add/edit field
-//        User::setInfo($params["id"],['gsm_cc' => '44','gsm' => '12345678' , 'custom_field1' => 'test']);
-//        users_informations remove field
-//        User::deleteInfo($params["id"],'custom_field1');
-//       users data edit field
-//       User::setData($params["id"],['name' => "John", 'surname' => "Sterling" , 'full_name' => "John Sterling"]);
-//
-// Write the code here...
-//    });
+/*
+    Hook::add("changePropertyToAccountOrderDetails",1,function($params = [])
+    {
+        if($params["module"] == "SampleHostingCP" && !Filter::isPOST())
+        {
+            $options        = $params["options"];
+            Helper::Load("Products");
+            $server         = Products::get_server($options["server_id"]);
+            if($server) $options["ip"] = $server["ip"];
+            $params["options"] = $options;
+            return $params;
+        }
+    });
+*/
