@@ -2,7 +2,7 @@
     return [
         'turn-back'             => 'Turn Back',
         'another'               => "Example Page",
-        'text1'                 => "Hosting Access \xc4\xb0nformation",
+        'text1'                 => "Hosting Access Information",
         'text2'                 => 'Username',
         'text3'                    => 'Password',
         'text4'                    => 'Note: Panel and FTP user entries are same',
@@ -15,6 +15,6 @@
             'content' => 'Note: You can also access your mail via {mail_panel_link} and send / receive email',
         ],
         'apply'                 => 'Apply',
-        'successful'            => 'Transaction Successfully Done',
-        'error'                 => 'Transaction Failed',
+        'successful'            => 'Process Successfully Done',
+        'error'                 => 'Process Failed',
     ];
