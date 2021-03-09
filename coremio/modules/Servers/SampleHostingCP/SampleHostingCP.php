@@ -5,6 +5,9 @@
         function __construct($server,$options=[])
         {
             $this->_name = __CLASS__;
+
+            // If you are developing, set the $this->force_setup value to be false.
+            $this->force_setup  = true; // If "true", even if the module gets an error message, it will be ignored and the installation is complete. 
             parent::__construct($server,$options);
         }
 
