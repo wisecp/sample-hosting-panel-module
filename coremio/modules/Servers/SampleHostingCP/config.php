@@ -8,6 +8,8 @@
         'server-info-secure-port'       => 2083,
         'supported' => [
             'disk-bandwidth-usage',
+            'manage-email-account',
+            'manage-email-forwards',
             'change-password',
         ],
         'configurable-option-params'    => [
